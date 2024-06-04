@@ -1,0 +1,32 @@
+name: transform AsciiDoc to DITA and build HTML5  
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  adoc_build:
+    runs-on: ubuntu-latest
+    name: asciidoctor --backend=docbook -o performing-a-standard-rhel-installation.xml ./performing-a-standard-rhel-installation.adoc
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Get build container
+      id: adocbuild
+      uses: tonynv/asciidoctor-action@master
+      with:
+          program: "asciidoctor --backend=docbook -o performing-a-standard-rhel-installation.xml ./performing-a-standard-rhel-installation.adoc"
+
+  build-dita:
+    name: Build DITA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Build HTML5 + Bootstrap
+        uses: dita-ot/dita-ot-action@master
+        with:
+          plugins: |
+            net.infotexture.dita-bootstrap
+          input: document.ditamap
+          transtype: html5-bootstrap
+          output-path: out
