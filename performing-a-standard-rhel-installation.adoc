@@ -1,6 +1,5 @@
 // Include shared, global attributes
 :Year: 2023
-
 // Red Hat and divisions
 :RH: Red Hat
 :CCS: Customer Content Services
@@ -194,6 +193,26 @@ Depending on your requirements, you can install {productname} using several meth
 :_mod-docs-content-type: CONCEPT
 [id="installation-methods_advanced_{context}"]
 = Available installation methods
+
+This is a codeblock:
+
+[source,yaml]
+----
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging # <1>
+metadata:
+  name: instance
+  namespace: openshift-logging # <2>
+spec:
+  collection:
+    logs:
+      type: vector # <3>
+      vector: {}
+# ...
+----
+<1> Blah
+<2> Blah Blah
+<3> Blah Blah Blah
 
 [role="_abstract"]
 You can install Red Hat Enterprise Linux using any of the following methods:

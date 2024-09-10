@@ -4,14 +4,14 @@
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="installing-RHEL">
 <info>
 <title>Performing a standard RHEL 9 installation</title>
-<date>2024-05-27</date>
+<date>2024-09-10</date>
 <orgname>Red Hat</orgname>
 </info>
-<acknowledgements xml:id="making-open-source-more-inclusive">
+<preface xml:id="making-open-source-more-inclusive">
 <title>Making open source more inclusive</title>
 <simpara role="_abstract">Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <link xl:href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright&#8217;s message</link>.</simpara>
-</acknowledgements>
-<acknowledgements xml:id="proc_providing-feedback-on-red-hat-documentation_installing-RHEL">
+</preface>
+<preface xml:id="proc_providing-feedback-on-red-hat-documentation_installing-RHEL">
 <title>Providing feedback on Red Hat documentation</title>
 <simpara role="_abstract">We appreciate your feedback on our documentation. Let us know how we can improve it.</simpara>
 <orderedlist numeration="arabic">
@@ -32,12 +32,35 @@
 <simpara>Click <emphasis role="strong">Create</emphasis> at the bottom of the dialogue.</simpara>
 </listitem>
 </orderedlist>
-</acknowledgements>
+</preface>
 <section xml:id="installation-methods-advanced_installing-RHEL">
 <title>Installation methods</title>
 <simpara>Depending on your requirements, you can install Red Hat Enterprise Linux using several methods. Review the following sections to determine the best installation method for your requirements.</simpara>
 <section xml:id="installation-methods_advanced_installation-methods">
 <title>Available installation methods</title>
+<simpara>This is a codeblock:</simpara>
+<programlisting language="yaml" linenumbering="unnumbered">apiVersion: logging.openshift.io/v1
+kind: ClusterLogging <co xml:id="CO1-1"/>
+metadata:
+  name: instance
+  namespace: openshift-logging <co xml:id="CO1-2"/>
+spec:
+  collection:
+    logs:
+      type: vector <co xml:id="CO1-3"/>
+      vector: {}
+# ...</programlisting>
+<calloutlist>
+<callout arearefs="CO1-1">
+<para>Blah</para>
+</callout>
+<callout arearefs="CO1-2">
+<para>Blah Blah</para>
+</callout>
+<callout arearefs="CO1-3">
+<para>Blah Blah Blah</para>
+</callout>
+</calloutlist>
 <simpara role="_abstract">You can install Red Hat Enterprise Linux using any of the following methods:</simpara>
 <itemizedlist>
 <listitem>
@@ -312,9 +335,9 @@ curl $url -o $filename</literallayout>
 </listitem>
 <listitem>
 <simpara>Open a terminal window and execute the bash file.</simpara>
-<literallayout role="white-space-pre" class="monospaced">$ ./FILEPATH/FILENAME.sh <co xml:id="CO1-1"/></literallayout>
+<literallayout role="white-space-pre" class="monospaced">$ ./FILEPATH/FILENAME.sh <co xml:id="CO2-1"/></literallayout>
 <calloutlist>
-<callout arearefs="CO1-1">
+<callout arearefs="CO2-1">
 <para>Test comment</para>
 </callout>
 </calloutlist>
@@ -564,7 +587,7 @@ Unlocked Encrypted
 </orderedlist>
 </section>
 </section>
-<section xml:id="prepare-installation-source_installing-RHEL">
+<section xml:id="prepare-installation-source_{context}">
 <title>Preparing an installation source</title>
 <simpara role="_abstract">The Boot ISO image file does not include any repositories or software packages; it contains only the installation program and the tools required to boot the system and start the installation. This section contains information about creating an installation source for the Boot ISO image using the DVD ISO image that contains the required repositories and software packages.</simpara>
 <important>
@@ -950,7 +973,7 @@ you must boot the installation program with the <literal role="option">noverifys
 </itemizedlist>
 </section>
 </section>
-<section xml:id="preparing-to-install-from-the-network-using-http_installing-RHEL">
+<section xml:id="preparing-to-install-from-the-network-using-http_{context}">
 <title>Preparing to install from the network using HTTP</title>
 <simpara>As an administrator of a server on a local network, you can configure an HTTP server to enable HTTP boot and network installation for other systems on your network.</simpara>
 <section xml:id="network-install-overview_preparing-to-install-from-the-network-using-http">
@@ -1275,7 +1298,7 @@ submenu 'Troubleshooting --&gt;' {
 </orderedlist>
 </section>
 </section>
-<section xml:id="preparing-for-a-network-install_installing-RHEL">
+<section xml:id="preparing-for-a-network-install_{context}">
 <title>Preparing to install from the network using PXE</title>
 <simpara role="_abstract">This section describes how to configure TFTP and DHCP on a PXE server to enable PXE boot and network installation.</simpara>
 <section xml:id="network-install-overview_preparing-for-a-network-install">
@@ -1759,7 +1782,7 @@ menuentry 'Red Hat Enterprise Linux 9' {
 </orderedlist>
 </section>
 </section>
-<section xml:id="creating-a-remote-repository_installing-RHEL">
+<section xml:id="creating-a-remote-repository_{context}">
 <title>Creating a remote repository</title>
 <simpara role="_abstract">Follow the steps in this procedure to create an installation source for a network-based installation using
 a remote repository containing extracted contents of the DVD ISO image. The installation source is accessed over HTTP or HTTPS.</simpara>
@@ -1861,7 +1884,7 @@ BaseOS_repo_http                                                     RHEL_9_x86_
 </section>
 </section>
 </section>
-<section xml:id="assembly_installing-on-amd64-intel-64-and-64-bit-arm_installing-RHEL">
+<section xml:id="assembly_installing-on-amd64-intel-64-and-64-bit-arm_{context}">
 <title>Installing Red Hat Enterprise Linux on AMD64, Intel 64, and 64-bit ARM</title>
 <simpara>This section describes how to install Red Hat Enterprise Linux on AMD64, Intel 64, and 64-bit ARM systems, using the graphical user interface. The section also provides the following information:</simpara>
 <itemizedlist>
@@ -3219,7 +3242,7 @@ System Purpose Status: Disabled</screen>
 </itemizedlist>
 </section>
 </section>
-<section xml:id="next-steps_installing-RHEL">
+<section xml:id="next-steps_{context}">
 <title>Next steps</title>
 <simpara role="_abstract">When you have completed the required post-installation steps, you can configure basic system settings. For information about completing tasks such as installing software with dnf, using systemd for service management, managing users, groups, and file permissions, using chrony to configure NTP, and working with Python 3, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/index"><emphasis>Configuring basic system settings</emphasis></link> document.</simpara>
 </section>
@@ -5335,6 +5358,9 @@ Note that this applies only for users on Red Hat Enterprise Linux 9 with the sam
 <simpara>Click <guibutton>Done</guibutton> to apply the changes and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
 </listitem>
 </orderedlist>
+<informalexample>
+
+</informalexample>
 </section>
 <section xml:id="editing-advanced-user-settings_graphical-installation">
 <title>Editing advanced user settings</title>
@@ -5376,7 +5402,7 @@ Note that this applies only for users on Red Hat Enterprise Linux 9 with the sam
 </orderedlist>
 </section>
 </section>
-<section xml:id="assembly_installing-on-64-bit-ibm-z_installing-RHEL">
+<section xml:id="assembly_installing-on-64-bit-ibm-z_{context}">
 <title>Installing Red Hat Enterprise Linux on 64-bit IBM Z</title>
 <simpara>This section describes how to install Red Hat Enterprise Linux on the 64-bit IBM Z architecture.</simpara>
 <section xml:id="planning-for-installation-on-ibm-z_assembly_installing-on-64-bit-ibm-z">
@@ -6938,7 +6964,7 @@ The key is removed from the system&#8217;s firmware.</simpara>
 </section>
 </section>
 </section>
-<section xml:id="assembly_performing-a-remote-installation-using-vnc_installing-RHEL">
+<section xml:id="assembly_performing-a-remote-installation-using-vnc_{context}">
 <title>Performing a remote RHEL installation using VNC</title>
 <simpara>This section describes how to install RHEL remotely using VNC.</simpara>
 <section xml:id="performing-a-remote-installation-using-vnc_assembly_performing-a-remote-installation-using-vnc">
@@ -7113,7 +7139,7 @@ Thu Jun 27 11:30:57 2019
 </section>
 </section>
 </section>
-<section xml:id="rhel-installations-on-ibm-power-servers_installing-RHEL">
+<section xml:id="rhel-installations-on-ibm-power-servers_{context}">
 <title>RHEL Installations on IBM Power Servers</title>
 <simpara>You can install Red Hat Enterprise Linux on various IBM Power System servers.</simpara>
 <section xml:id="supported-ibm-power-servers_rhel-installations-on-ibm-power-servers">
@@ -7257,7 +7283,7 @@ Thu Jun 27 11:30:57 2019
 <simpara>For detailed instructions, see <link xl:href="https://www.ibm.com/docs/en/linux-on-systems?topic=ilps-installing-linux-power-systems-servers-by-using-serial-console">Installing Linux on Power Systems servers by using the serial console</link> in the IBM documentation.</simpara>
 </section>
 </section>
-<appendix xml:id="system-requirements-reference_installing-RHEL">
+<appendix xml:id="system-requirements-reference_{context}">
 <title>System requirements reference</title>
 <simpara role="_abstract">This section provides information and guidelines for hardware, installation target, system, memory, and RAID when installing Red Hat Enterprise Linux.</simpara>
 <section xml:id="supported-installation-targets_system-requirements-reference">
@@ -7384,7 +7410,7 @@ For Red Hat Enterprise Linux Beta releases, the kernel is signed with a Red Hat 
 As a result, the system fails to even boot the installation media.</simpara>
 </section>
 </appendix>
-<appendix xml:id="partitioning-reference_installing-RHEL">
+<appendix xml:id="partitioning-reference_{context}">
 <title>Partitioning reference</title>
 <section xml:id="supported-device-types_partitioning-reference">
 <title>Supported device types</title>
@@ -7766,7 +7792,7 @@ If it is not a requirement to configure these disks during installation, disconn
 </formalpara>
 </section>
 </appendix>
-<appendix xml:id="changing-a-subscripton-service_installing-RHEL">
+<appendix xml:id="changing-a-subscripton-service_{context}">
 <title>Changing a subscription service</title>
 <simpara role="_abstract">To manage the subscriptions, you can register a RHEL system with either Red Hat Subscription Management Server or Red Hat Satellite Server.
 If required, you can change the subscription service at a later point.
@@ -7858,13 +7884,13 @@ For more information about registering a system, see
 </itemizedlist>
 </section>
 </section>
-<section xml:id="unregistering-from-satellite-server_installing-RHEL">
+<section xml:id="unregistering-from-satellite-server_{context}">
 <title>Unregistering from Satellite Server</title>
 <simpara role="_abstract">To unregister a Red Hat Enterprise Linux system from Satellite Server, remove the system from Satellite Server.</simpara>
 <simpara>For more information, see <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_satellite/6.6/html/managing_hosts/index">Removing a Host from Red Hat Satellite</link> in the <emphasis>Managing Hosts</emphasis> guide from Satellite Server documentation.</simpara>
 </section>
 </appendix>
-<appendix xml:id="iscsi-disks-in-installation-program_installing-RHEL">
+<appendix xml:id="iscsi-disks-in-installation-program_{context}">
 <title>iSCSI disks in installation program</title>
 <simpara role="_abstract">The Red Hat Enterprise Linux installer can discover and log in to iSCSI disks in two ways:</simpara>
 <itemizedlist>
@@ -7889,7 +7915,7 @@ However, in instances where the installed system is expected to boot from iSCSI 
 The installer then copies this database to the installed system and marks any iSCSI targets that are not used for root partition, so that the system automatically logs in to them when it starts.
 If the root partition is placed on an iSCSI target, initrd logs into this target and the installer does not include this target in start up scripts to avoid multiple attempts to log into the same target.</simpara>
 </appendix>
-<appendix xml:id="troubleshooting-at-the-start-of-the-installation_installing-RHEL">
+<appendix xml:id="troubleshooting-at-the-start-of-the-installation_{context}">
 <title>Tools and tips for troubleshooting and bug reporting</title>
 <simpara role="_abstract">The troubleshooting information in the following sections might be helpful when diagnosing issues at the start of the installation process. The following sections are for all supported architectures. However, if an issue is for a particular architecture, it is specified at the start of the section.</simpara>
 <section xml:id="dracut_troubleshooting-at-the-start-of-the-installation">
@@ -8284,7 +8310,7 @@ Use this procedure to test the integrity of an ISO-based installation source bef
 </orderedlist>
 </section>
 </appendix>
-<appendix xml:id="troubleshooting-after-installation_installing-RHEL">
+<appendix xml:id="troubleshooting-after-installation_{context}">
 <title>Troubleshooting</title>
 <simpara role="_abstract">The troubleshooting information in the following sections might be helpful when diagnosing issues after the installation process. The following sections are for all supported architectures. However, if an issue is for a particular architecture, it is specified at the start of the section.</simpara>
 <section xml:id="resuming-an-interrupted-download-attempt_troubleshooting-after-installation">
